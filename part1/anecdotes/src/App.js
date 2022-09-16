@@ -8,7 +8,7 @@ const App = () => {
 	const mostVotes =  votes.indexOf(Math.max(...votes));
 	const handleNext = () => setSelected(randomNum);
 	const handleVote = () => setVotes(votes.map((value, index) => index === selected ? value + 1 : value));
-	{/* Seen in the React documentation */}
+	// Seen in the React documentation 
 	const mostVotedAnecdote = votes[mostVotes] === 0 ? <p> There is no votes yet </p> : <Anecdote anecdote={anecdotes[mostVotes]} votes={votes[mostVotes]} />;
 
   return (

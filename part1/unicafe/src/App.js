@@ -1,5 +1,5 @@
-import {useState} from 'react';
-import './App.css';
+import React, { useState } from 'react'
+
 
 const App = () => {
   // save clicks of each button to its own state
@@ -11,7 +11,6 @@ const App = () => {
 	const handleNeutralClick = () => setNeutral(neutral + 1);
 	const handleBadClick = () => setBad(bad + 1);
 
-	
   return (
     <>
 			<Heading text="Unicafe" h="h1" />
