@@ -1,4 +1,3 @@
-import { useState } from 'react'
  
  const Filter = ({filter, setFilter, handleChangeFilter}) => (
 
@@ -10,43 +9,17 @@ import { useState } from 'react'
 	</form>
 );
 
-const PersonForm = ({persons, setPersons}) =>{
-	const [newName, setNewName] = useState('')
-	const [newNumber, setNewNumber] = useState('')
-	
-
-	const handleChangeName = (event) => {
-		setNewName(event.target.value)
-	}
-
-	const handleChangeNumber = (event) =>{
-		setNewNumber(event.target.value)
-	} 
-
-	const addPerson = (event) => {
-		event.preventDefault()
-		const nameObject = {
-			name: newName,
-			number: newNumber,
-		}
-		if (persons.some(person => person.name === newName)) {
-			alert(`${newName} is already added to phonebook`)
-		}else{
-			setPersons(persons.concat(nameObject))
-			setNewName('')
-		}
-	}
-
+const PersonForm = ({ newPerson, addPerson, handleChangeForm}) =>{
 
 	return(
-		<form onSubmit={addPerson}>
+		<form onSubmit={(event) => addPerson(event, newPerson)}>
 			<div>
 				<label>name:</label> 
-				<input value={newName} onChange={handleChangeName} />
+				<input name="name" value={newPerson.name}  onChange={handleChangeForm} />
 			</div>
 			<div>
 				<label>number:</label> 
-				<input value={newNumber} onChange={handleChangeNumber} />
+				<input name="number" value={newPerson.number}  onChange={handleChangeForm} />
 			</div>
 			<div>
 				<button type="submit">add</button>
@@ -55,8 +28,15 @@ const PersonForm = ({persons, setPersons}) =>{
 	)
 }
 
-const Person = ({person}) => <div>{person.name} {person.number}</div>
+const Person = ({person, deletePerson}) =>{
+	return(
+		<div>
+			{person.name} {person.number} 
+			<button onClick={() => deletePerson(person) }>Delete</button>
+		</div>
+	)
+}
 
-const Persons = ({persons}) => persons.map(person => <Person key={person.name} person={person} />)
+const Persons = ({persons, deletePerson}) => persons.map(person => <Person key={person.name} person={person} deletePerson={deletePerson}/>)
 // export all components
 export {Filter, PersonForm, Person, Persons};
