@@ -1,17 +1,18 @@
 import { useState, useEffect } from 'react'
 import axios from 'axios'
 import {Filter, PersonForm, Persons} from './components/phonebook'
+import phonebookService from './services/phonebookService'
 
 const App = () => {
 
   const [persons, setPersons] = useState([]) 
 
 	useEffect(() => {
-		axios
-			.get('http://localhost:3001/persons')
-			.then(response => {
-				setPersons(response.data)
-			})
+		phonebookService
+			.getAll()
+			.then(response =>
+				setPersons(response)
+			)
 	}, [])
 
 	const [filter, setFilter] = useState('');

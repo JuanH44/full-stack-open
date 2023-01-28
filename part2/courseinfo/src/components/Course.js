@@ -7,7 +7,7 @@ const Course = ({course}) => (
 			<Total course={course} />
 	</>
 );
-
+//hola
 const Header = ({course:{name}}) => <h2>{name}</h2>;
 
 const Content = ({course:{parts}}) => {
