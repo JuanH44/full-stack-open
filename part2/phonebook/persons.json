@@ -1,24 +1,9 @@
 {
   "persons": [
     {
-      "name": "Jan",
-      "number": "63",
-      "id": 3
-    },
-    {
-      "name": "joe",
-      "number": "34",
-      "id": 5
-    },
-    {
-      "name": "jan",
-      "number": "33",
-      "id": 6
-    },
-    {
-      "name": "jac",
-      "number": "56",
-      "id": 7
+      "name": "Ada Lovelac",
+      "number": "777",
+      "id": 21
     }
   ]
 }
