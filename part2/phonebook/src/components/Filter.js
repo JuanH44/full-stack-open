@@ -1,4 +1,4 @@
-export const Filter = ({filter, setFilter, handleChangeFilter}) => (
+export const Filter = ({handleChangeFilter}) => (
 	<form >
 		<div>
 			<label>Filter: </label>

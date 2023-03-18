@@ -1,2 +1,14 @@
 full-stack-open.code-workspace
 part2/phonebook/persons.json
+# Ignore node_modules
+node_modules
+# Ignore build output
+build
+# Ignore test coverage output
+coverage
+# Ignore .env files
+.env
+.env.local
+.env.development
+.env.test
+.env.production

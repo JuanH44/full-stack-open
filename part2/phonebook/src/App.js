@@ -29,7 +29,7 @@ const App = () => {
 		setNewPerson({...newPerson, [name]:value})
 	}
 
-	const personsToShow = ( /^\s*$/.test(filter) 
+	const personsToShow = ( /^\s*$/.test(filter.replace()) 
 		? persons 
 		: persons.filter(person => RegExp(`^${filter}`,'i').test(person.name))
 	)
@@ -122,7 +122,7 @@ const deletePerson = ({id, name}) => {
       <h2>Phonebook</h2>
 			<Notification  notification={notification}/>
 
-			<Filter filter={filter} setFilter={setFilter} handleChangeFilter={handleChangeFilter}/>
+			<Filter handleChangeFilter={handleChangeFilter}/>
       <PersonForm newPerson={newPerson} addPerson={addPerson} handleChangeForm={handleChangeForm}/>
       
 			<h2>Numbers</h2>
